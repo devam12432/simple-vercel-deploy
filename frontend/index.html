@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A local trading app prototype. No real orders, market feed, or funds.">
+  <title>Trading Simulator</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="order-switch" id="orderSwitch" aria-label="Orders screen sections">
+          <button id="tab-orders" data-order-view="orders">Orders</button>
+          <button id="tab-positions" data-order-view="positions" class="selected">Positions</button>
+        </div>
+        <h1 id="pageTitle" class="hidden">Orders</h1>
+      </div>
+      <div class="topbar-actions">
+        <button class="header-icon" id="searchButton" aria-label="Search" title="Search">⌕</button>
+        <button class="header-icon hidden" id="filterButton" aria-label="Filter positions" title="Filter">☷</button>
+        <button class="header-icon hidden" id="overflowButton" aria-label="More actions" title="More actions">⋮</button>
+        <button class="header-icon hidden" id="refreshButton" aria-label="Refresh data" title="Refresh">↻</button>
+      </div>
+    </header>
+    <div id="searchPanel" class="search-panel hidden">
+      <span aria-hidden="true">⌕</span>
+      <input id="globalSearch" type="search" placeholder="Search positions…" autocomplete="off" aria-label="Search positions">
+      <button class="search-clear" type="button" aria-label="Clear search" onclick="document.getElementById('globalSearch').value='';document.getElementById('globalSearch').dispatchEvent(new Event('input'))">×</button>
+    </div>
+    <section id="quoteStrip" class="quote-strip" aria-label="Market quotes"></section>
+    <main id="screen" tabindex="-1" aria-live="polite"><div class="loading"><span></span>Loading account…</div></main>
+    <section id="positionTotal" class="position-total hidden" aria-label="Total open-position profit and loss"></section>
+    <nav id="mobileNav" class="mobile-nav" aria-label="Main navigation"></nav>
+  </div>
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root" role="status" aria-live="polite"></div>
+  <script src="/js/config.js" defer></script>
+  <script src="/js/calculations.js" defer></script>
+  <script src="/js/api.js" defer></script>
+  <script src="/js/app.js" defer></script>
+</body>
+</html>

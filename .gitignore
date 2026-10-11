@@ -1,0 +1,8 @@
+node_modules/
+backend/database.sqlite
+backend/database.sqlite-shm
+backend/database.sqlite-wal
+android/.gradle/
+android/app/build/
+.DS_Store
+.env
